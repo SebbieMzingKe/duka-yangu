@@ -12,16 +12,17 @@ def product_list(request, category_slug = None):
 
     if category_slug:
         category = get_object_or_404(Category, slug = category_slug)
-        return render(
-            request,
-            'shop/product/list.html',
-        {
-            'category': category,
-            'categories': categories,
-            'products': products
-        }
-        )
     
+    return render(
+        request,
+        'shop/product/list.html',
+    {
+        'category': category,
+        'categories': categories,
+        'products': products
+    }
+    )
+
 # retrieve and display a single product
 def product_detail(request, id, slug):
     product = get_object_or_404(
