@@ -20,7 +20,7 @@ class OrderAdmin(admin.ModelAdmin):
         'postal_code',
         'city',
         'paid',
-        # 'order_payment',
+        'order_payment',
         'created',
         'updated'
     ]
@@ -28,11 +28,11 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
 
-    # def order_payment(obj):
-    #     url = obj.get_stripe_url()
-    #     if obj.stripe_id:
-    #         html = f'<a href="{url}" target="_blank">{obj.stripe_id}<a/>'
-    #         return mark_safe(html)
+    def order_payment(obj):
+        url = obj.get_stripe_url()
+        if obj.stripe_id:
+            html = f'<a href="{url}" target="_blank">{obj.stripe_id}<a/>'
+            return mark_safe(html)
         
-    #     return ''
-    # order_payment.short_description = 'Stripe payment'
+        return ''
+    order_payment.short_description = 'Stripe payment'
