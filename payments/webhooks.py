@@ -40,6 +40,10 @@ def stripe_webhook(request):
 
             # mark order as apaid
             order.paid = True
+
+            # store stripe payment ID
+            order.stripe_id = session.payment_intent
             order.save()
+
 
     return HttpResponse(status = 200)
