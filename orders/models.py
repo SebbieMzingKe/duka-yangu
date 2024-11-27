@@ -32,7 +32,7 @@ class Order(models.Model):
 
             # no payments associated
             return ''
-        if '__test__' in STRIPE_SECRET_KEY:
+        if '__test__' in settings.STRIPE_SECRET_KEY:
             # stripe path for test payments
             path = '/test/'
         else:
