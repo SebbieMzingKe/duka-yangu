@@ -1,6 +1,6 @@
 <html>
 <body>
-  <h1>My Shop</h1>
+  <h1>Maina Shop</h1>
   <p>
     Invoice no. {{ order.id }}<br>
     <span class="secondary">
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       {% for item in order.items.all %}
-        <tr class="row{% cycle "1" "2" %}">
+        <tr class="row{% cycle '1' '2' %}">
           <td>{{ item.product.name }}</td>
           <td class="num">${{ item.price }}</td>
           <td class="num">{{ item.quantity }}</td>
