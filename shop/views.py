@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404, render
+
+from .recommender import Recommender
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 
@@ -31,11 +33,18 @@ def product_detail(request, id, slug):
             )
 
     cart_product_form = CartAddProductForm()
+
+    r = Recommender()
+    recommended_products = r.suggest_products_for([product], 4)
+
+
+    print(f"Recommended products for {product}: {recommended_products}")
     return render(
         request,
         'shop/product/detail.html',
         {
             'product': product,
             'cart_product_form': cart_product_form,
+            'recommended_products': recommended_products
         }
     )
