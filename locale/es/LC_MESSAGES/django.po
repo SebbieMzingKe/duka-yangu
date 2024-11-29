@@ -8,56 +8,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 10:26+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-11-29 11:03+0300\n"
+"PO-Revision-Date: 2024-11-29 09:04+0000\n"
+"Last-Translator:   <chanzu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: cart/forms.py:11 cart/templates/cart/detail.html:17
 #: payments/templates/payments/process.html:18
 msgid "Quantity"
-msgstr ""
+msgstr "Cantidad"
 
 #: cart/templates/cart/detail.html:6 cart/templates/cart/detail.html:11
 msgid "Your shopping cart"
-msgstr ""
+msgstr "Su carro"
 
 #: cart/templates/cart/detail.html:15
 #: payments/templates/payments/process.html:15
 msgid "Image"
-msgstr ""
+msgstr "Imagen"
 
 #: cart/templates/cart/detail.html:16
 #: payments/templates/payments/process.html:16
 msgid "Product"
-msgstr ""
+msgstr "Producto"
 
 #: cart/templates/cart/detail.html:18 cart/templates/cart/detail.html:48
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 #: cart/templates/cart/detail.html:19
 msgid "Unit price"
-msgstr ""
+msgstr "Precio unitario"
 
 #: cart/templates/cart/detail.html:20
 #: payments/templates/payments/process.html:17
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #: cart/templates/cart/detail.html:42
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 #: cart/templates/cart/detail.html:62
 #: payments/templates/payments/process.html:44
 msgid "Subtotal"
-msgstr ""
+msgstr "Subtotal"
 
 #: cart/templates/cart/detail.html:71
 #, python-format
@@ -95,13 +96,29 @@ msgstr ""
 msgid "Coupon"
 msgstr ""
 
-#: mainashop/settings.py:164
+#: mainashop/settings.py:165
 msgid "English"
 msgstr ""
 
-#: mainashop/settings.py:165
+#: mainashop/settings.py:166
 msgid "Spanish"
 msgstr ""
+
+#: mainashop/urls.py:29
+msgid "cart/"
+msgstr ""
+
+#: mainashop/urls.py:30
+msgid "orders/"
+msgstr ""
+
+#: mainashop/urls.py:31
+msgid "payments/"
+msgstr "Cupón"
+
+#: mainashop/urls.py:32
+msgid "coupons/"
+msgstr "Pago cancelado"
 
 #: payments/templates/payments/canceled.html:5
 msgid "Payment Canceled"
@@ -135,16 +152,20 @@ msgstr ""
 msgid "Order Summary"
 msgstr ""
 
-#: payments/templates/payments/process.html:52
-#, python-format
-msgid ""
-"\n"
-"              \"%(code)s\" (%(discount)s%% off)\n"
-"            "
-msgstr ""
-
 #: payments/templates/payments/process.html:74
 msgid "Pay now"
+msgstr ""
+
+#: payments/urls.py:9
+msgid "process/"
+msgstr ""
+
+#: payments/urls.py:10
+msgid "completed/"
+msgstr ""
+
+#: payments/urls.py:11
+msgid "canceled/"
 msgstr ""
 
 #: shop/templates/shop/base.html:9 shop/templates/shop/base.html:16
@@ -166,7 +187,11 @@ msgid_plural ""
 "                %(items)s item, $%(total)s\n"
 "            "
 msgstr[0] ""
+"\n"
+"%(items)s producto, $%(total)s"
 msgstr[1] ""
+"\n"
+"%(items)s productos, $%(total)s"
 
 #: shop/templates/shop/base.html:35
 msgid "Your cart is empty."
@@ -183,8 +208,8 @@ msgstr ""
 
 #: shop/templates/shop/product/list.html:15
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #: shop/templates/shop/product/list.html:19
 msgid "All"
-msgstr ""
+msgstr "todo"

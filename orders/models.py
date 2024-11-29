@@ -31,6 +31,9 @@ class Order(models.Model):
         validators = [MinValueValidator(0), MaxValueValidator(100)]
     )
 
+    def get_total_weight(self):
+        return sum(item.get_weight() for item in self.items.all)
+
     class Meta:
         ordering = ['-created']
         indexes = [
@@ -39,10 +42,27 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Order {self.id}'
+    
+    def calculate_shipping_cost(total_weight):
+        """
+        Calculate shipping cost based on total weight in grams.
+
+        - Upto 1000g: $5
+        - 1001g to 5000g: $10
+        - 0ver 5000g: $20
+        """
+
+        if total_weight <= 1000:
+            return Decimal('5.00')
+        elif total_weight <=5000:
+            return Decimal('10.00')
+        else:
+            return Decimal('$20.00')
 
     def get_total_cost(self):
         total_cost = self.get_total_cost_before_discount()
-        return total_cost - self.get_discount()
+        shipping_cost = self.calculate_shipping_cost(self.get_total_weight())
+        return total_cost - self.get_discount() + shipping_cost
     
     def get_stripe_url(self):
         if not self.stripe_id:
@@ -96,3 +116,8 @@ class OrderItem(models.Model):
     
     def get_cost(self):
         return self.price * self.quantity
+    
+    def get_weight(self):
+        return self.product.weight * self.quantity
+    
+    

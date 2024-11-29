@@ -35,6 +35,9 @@ def order_create(request):
             # clear the cart
             cart.clear()
 
+            # calculate shipping cost
+            shipping_cost = calculate_shipping_cost(order.get_total_weight)
+
             # launch asynchronous 
             order_created.delay(order.id)
             

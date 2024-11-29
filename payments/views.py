@@ -52,7 +52,21 @@ def payment_process(request):
                 }
             )
 
+
         
+        shipping_cost = calculate_shipping_cost(order.get_total_weight())
+        session_data['line_items'].append({
+            'price_data':{
+                'unit_amount': int(item.price * Decimal('100')),
+                'currency': 'usd',
+                'product_data':{
+                    'name': 'Shipping'
+                },
+            },
+            'quantity': 1,
+        })
+
+
         # stripe coupon
         if order.coupon:
             stripe_coupon = stripe.Coupon.create(

@@ -47,8 +47,22 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'shop.apps.ShopConfig',
     'rosetta',
+    'parler',
+    'localflavor',
 ]
 
+
+# django-parler settings
+PARLER_LANGUAGES = {
+    None:(
+        {'code': 'en'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
 
 
 CART_SESSION_ID = 'cart'

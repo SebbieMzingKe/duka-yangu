@@ -37,6 +37,10 @@
                 
         </ul>
         <p>{% trans "Total" %}: ${{ cart.get_total_price_after_discount|floatformat:2 }}</p>
+        <p>{% trans 'Total Weight' %}: {{ order.get_total_weight }} g</p>
+        <p>{% trans 'Shipping Cost' %}: {{ order.get_shipping_cost }} USD</p>
+        <p>{% trans 'Total Cost ' %}(including shipping): {{ order.get_total_cost_with_shipping }} USD</p>
+
     </div>
     <form method="post" class="order-form">
         {{ form.as_p }}

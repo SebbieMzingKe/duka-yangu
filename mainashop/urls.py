@@ -19,17 +19,29 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
-urlpatterns = [
+from payments import webhooks
+
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path('cart/', include('cart.urls', namespace = 'cart')),
-    path('orders/', include('orders.urls', namespace = 'orders')),
-    path('payments/', include('payments.urls', namespace = 'payments')),
-    path('coupons/', include('coupons.urls', namespace = 'coupons')),
+    path(_('cart/'), include('cart.urls', namespace = 'cart')),
+    path(_('orders/'), include('orders.urls', namespace = 'orders')),
+    path(_('payments/'), include('payments.urls', namespace = 'payments')),
+    path(_('coupons/'), include('coupons.urls', namespace = 'coupons')),
     path('rosetta/', include('rosetta.urls')),
     path('', include('shop.urls', namespace = 'shop')),
-]
+)
 
+
+urlpatterns += [
+    path(
+        'payments/webhooks',
+        webhooks.stripe_webhook,
+        name = 'stripe-webhook'
+    ),
+]
 
 if settings.DEBUG:
     urlpatterns += static(

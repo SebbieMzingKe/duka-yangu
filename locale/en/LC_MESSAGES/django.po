@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-29 10:26+0300\n"
+"POT-Creation-Date: 2024-11-29 11:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,13 +95,29 @@ msgstr ""
 msgid "Coupon"
 msgstr ""
 
-#: mainashop/settings.py:164
+#: mainashop/settings.py:165
 msgid "English"
 msgstr "Inglés"
 
-#: mainashop/settings.py:165
+#: mainashop/settings.py:166
 msgid "Spanish"
 msgstr "Español"
+
+#: mainashop/urls.py:29
+msgid "cart/"
+msgstr ""
+
+#: mainashop/urls.py:30
+msgid "orders/"
+msgstr ""
+
+#: mainashop/urls.py:31
+msgid "payments/"
+msgstr ""
+
+#: mainashop/urls.py:32
+msgid "coupons/"
+msgstr ""
 
 #: payments/templates/payments/canceled.html:5
 msgid "Payment Canceled"
@@ -135,16 +151,20 @@ msgstr ""
 msgid "Order Summary"
 msgstr ""
 
-#: payments/templates/payments/process.html:52
-#, python-format
-msgid ""
-"\n"
-"              \"%(code)s\" (%(discount)s%% off)\n"
-"            "
-msgstr ""
-
 #: payments/templates/payments/process.html:74
 msgid "Pay now"
+msgstr ""
+
+#: payments/urls.py:9
+msgid "process/"
+msgstr ""
+
+#: payments/urls.py:10
+msgid "completed/"
+msgstr ""
+
+#: payments/urls.py:11
+msgid "canceled/"
 msgstr ""
 
 #: shop/templates/shop/base.html:9 shop/templates/shop/base.html:16
