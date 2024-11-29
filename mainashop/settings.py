@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payments.apps.PaymentsConfig',
     'shop.apps.ShopConfig',
+    'rosetta',
 ]
 
 
